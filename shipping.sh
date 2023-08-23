@@ -47,7 +47,7 @@ unzip /tmp/shipping.zip &>>$LOGFILE
 
 VALIDATE $? "Unzipping shipping"
 
-mvn clean package -y &>>$LOGFILE
+mvn clean package &>>$LOGFILE
 
 VALIDATE $? "packaging shipping app"
 
