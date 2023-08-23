@@ -31,7 +31,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 VALIDATE $? " Rpm installed" 
 yum install nodejs -y &>>$LOGFILE
 VALIDATE $? "yum install"
-#useradd roboshop 
+useradd roboshop 
 mkdir /app
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 VALIDATE $? "downloading"
