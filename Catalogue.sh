@@ -31,8 +31,8 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash &>>$LOGFILE
 VALIDATE $? " Rpm installed" 
 yum install nodejs -y &>>$LOGFILE
 VALIDATE $? "yum install"
-useradd roboshop 
-mkdir /app
+# useradd roboshop 
+#mkdir /app
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>>$LOGFILE
 VALIDATE $? "downloading"
 cd /app &>>$LOGFILE
@@ -49,6 +49,7 @@ systemctl enable catalogue &>>$LOGFILE
 VALIDATE $? " enable"
 systemctl start catalogue &>>$LOGFILE
 VALIDATE $? " start"
+cp /home/centos/sriv/mongo.repo /etc/yum.repos.d/mongo.repo &>>$LOGFILE
 yum install mongodb-org-shell -y &>>$LOGFILE
 VALIDATE $? "installed client"
 mongo --host mongodb.srivijay.online </app/schema/catalogue.js &>>$LOGFILE
